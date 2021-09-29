@@ -12,9 +12,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public abstract class NSTest {
+    private PrintStream standardOut;
     private OutputStream captor;
 
     protected void setUp() {
+        standardOut = System.out;
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
     }
@@ -55,5 +57,10 @@ public abstract class NSTest {
 
     protected String output() {
         return captor.toString().trim();
+    }
+
+    protected void outputStandard() {
+        System.setOut(standardOut);
+        System.out.println(output());
     }
 }

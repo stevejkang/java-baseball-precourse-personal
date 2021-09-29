@@ -2,6 +2,7 @@ package baseball;
 
 import nextstep.test.NSTest;
 import nextstep.utils.Randoms;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -35,6 +36,11 @@ public class ApplicationTest extends NSTest {
             run("713", "1", "597", "589", "2");
             verify("3스트라이크", "게임 끝", "1스트라이크 1볼");
         }
+    }
+
+    @AfterEach
+    void tearDown() {
+        outputStandard();
     }
 
     @Override
