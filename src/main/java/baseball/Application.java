@@ -1,7 +1,14 @@
 package baseball;
 
+import baseball.controller.BaseballGameController;
+import baseball.domain.GameNumberGenerator;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        BaseballGameController controller = new BaseballGameController(
+            new GameNumberGenerator()
+        );
+
+        controller.playGame();
     }
 }
